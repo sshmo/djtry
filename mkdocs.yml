@@ -1,14 +1,14 @@
-site_name: pytry
+site_name: djtry
 
-site_description: 'pytry documentations'
+site_description: 'djtry documentations'
 
 site_author: 'Shabbir Mousavi'
 
 docs_dir: docs/
 
-repo_name: 'sshmo/pytry'
+repo_name: 'sshmo/djtry'
 
-repo_url: 'https://github.com/sshmo/pytry'
+repo_url: 'https://github.com/sshmo/djtry'
 
 theme:
   name: "material"
@@ -25,4 +25,4 @@ plugins:
 nav:
   - Home: index.md
   - Usage: tutorials.md
-  - prtry: reference/
+  - djtry: reference/
