@@ -3,7 +3,10 @@
 from pathlib import Path
 
 import pytest
+from dotenv import load_dotenv
 from pyinstrument import Profiler
+
+load_dotenv("./.envs/.test")
 
 TESTS_ROOT = Path.cwd()
 

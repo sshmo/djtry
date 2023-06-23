@@ -1,18 +1,22 @@
 # Usage
 
-First download the code from pytry GitHub repository and install it:
+First download the code from djtry GitHub repository:
 
 ``` sh
-    git clone git@github.com:sshmo/pytry.git
-    cd pytry
-    pip install .
+    git clone git@github.com:sshmo/djtry.git
+    cd djtry
 ```
 
-Usage:
+To run app:
 
-``` python
-    from pytry.general.world_cup_dataframe import DFScoreBoard
-    score_board = DFScoreBoard(input, 6)
-    score_board.main()
-    print(score_board)
+``` sh
+    python manage.py makemigrations blog
+    python manage.py migrate
+    python manage.py runserver
+```
+
+For creating superuser:
+
+``` sh
+    python manage.py createsuperuser
 ```

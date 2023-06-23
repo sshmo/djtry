@@ -21,10 +21,16 @@ max-parents=13
 [tool.pylint.typecheck]
 ignored-modules=["pytry","tests",]
 
+[tool.pylint.main]
+django-settings-module="djtry.settings"
+ignore-patterns="tests"
+
 [tool.pytest.ini_options]
 filterwarnings=["ignore::DeprecationWarning",]
 testpaths=["tests",]
 addopts = "--cov --cov-report term-missing"
+DJANGO_SETTINGS_MODULE = "djtry.settings"
+
 
 [tool.coverage.run]
 omit = ["*/migrations/*", "*/tests/*", "*/venv/*"]

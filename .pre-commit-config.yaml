@@ -1,3 +1,4 @@
+exclude: 'migrations|manage.py'
 default_stages: [commit]
 fail_fast: true
 
@@ -84,7 +85,6 @@ repos:
     rev: 1.7.5
     hooks:
     -   id: bandit
-        files: pytry/
         args: ["-c", "pyproject.toml"]
         additional_dependencies: [".[toml]"]
 
@@ -102,18 +102,18 @@ repos:
         language: python
         types: [python]
         additional_dependencies: [
+          'Django==4.2.2',
           'pylint==2.17.3',
+          'pylint_django==2.5.3',
           'pytest==7.3.1',
-          'pandas==2.0.1',
-          'pytz==2023.3',
-          'tzdata==2023.3',
-          'numpy==1.24.3'
           ]
         require_serial: true
         args:
           [
             "-rn", # Only display messages
             "-sn", # Don't display the score
+            "--load-plugins=pylint_django",
             "--rcfile=pyproject.toml", # Link to your config file
+            "--ignore-paths=tests"
           ]
-        files: pytry/
+        files: djtry|blog

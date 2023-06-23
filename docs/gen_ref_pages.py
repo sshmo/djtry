@@ -4,29 +4,33 @@ from pathlib import Path
 
 import mkdocs_gen_files
 
-for path in sorted(Path("pytry").rglob("*.py")):
+apps = ["djtry", "blog"]
 
-    module_path = path.relative_to("pytry").with_suffix("")
+for app in apps:
 
-    doc_path = path.relative_to("pytry").with_suffix(".md")
+    for path in sorted(Path(app).rglob("*.py")):
 
-    full_doc_path = Path("reference", doc_path)
+        module_path = path.relative_to(app).with_suffix("")
 
-    parts = list(module_path.parts)
+        doc_path = path.relative_to(app).with_suffix(".md")
 
-    if parts[-1] == "__init__":
+        full_doc_path = Path("reference", doc_path)
 
-        parts = parts[:-1]
-        doc_path = doc_path.with_name("index.md")
-        full_doc_path = full_doc_path.with_name("index.md")
+        parts = list(module_path.parts)
 
-    elif parts[-1] == "__main__":
-        continue
+        if parts[-1] == "__init__":
 
-    with mkdocs_gen_files.open(full_doc_path, "w") as fd:
+            parts = parts[:-1]
+            doc_path = doc_path.with_name("index.md")
+            full_doc_path = full_doc_path.with_name("index.md")
 
-        identifier = ".".join(parts)
+        elif parts[-1] == "__main__":
+            continue
 
-        print("::: pytry." + identifier if identifier else "::: pytry", file=fd)
+        with mkdocs_gen_files.open(full_doc_path, "w") as fd:
 
-    mkdocs_gen_files.set_edit_path(full_doc_path, path)
+            identifier = ".".join(parts)
+
+            print(f"::: {app}." + identifier if identifier else f"::: {app}", file=fd)
+
+        mkdocs_gen_files.set_edit_path(full_doc_path, path)
