@@ -1,5 +1,5 @@
 test:
-	pytest -svv --log-cli-level=INFO --cov=djtry/ tests/ --hypothesis-show-statistics
+	pytest -svv --log-cli-level=INFO --cov=blog/ tests/ --hypothesis-show-statistics
 
 dev:
 	pre-commit run -a

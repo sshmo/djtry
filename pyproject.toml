@@ -7,7 +7,7 @@ profile = "black"
 
 [tool.bandit]
 exclude_dirs = ["tests",]
-include_dirs = ["pytry",]
+include_dirs = ["djtry",]
 
 [tool.pylint.format]
 max-line-length=120
@@ -19,14 +19,13 @@ max-line-length=120
 max-parents=13
 
 [tool.pylint.typecheck]
-ignored-modules=["pytry","tests",]
+ignored-modules=["tests",]
 
 [tool.pylint.main]
 django-settings-module="djtry.settings"
 ignore-patterns="tests"
 
 [tool.pytest.ini_options]
-filterwarnings=["ignore::DeprecationWarning",]
 testpaths=["tests",]
 addopts = "--cov --cov-report term-missing"
 DJANGO_SETTINGS_MODULE = "djtry.settings"
